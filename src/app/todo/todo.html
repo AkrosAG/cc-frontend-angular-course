@@ -2,8 +2,11 @@
   <h2>{{ subtitle() }}</h2>
 
   <ul>
-    <li>Task 1</li>
-    <li>Task 2</li>
+    @for (todo of todos(); track todo.id) {
+      <li>{{ todo.label }}</li>
+    } @empty {
+      <li class="no-todos">Keine Einträge</li>
+    }
   </ul>
   <button mat-raised-button color="warn" (click)="onClearClick()">Clear</button>
 </div>

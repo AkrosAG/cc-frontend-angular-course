@@ -8,5 +8,11 @@ ul {
   li {
     border: 1px cornflowerblue solid;
     padding: 5px;
+
+    &.no-todos {
+      font-style: italic;
+      border: 1px cornflowerblue dashed;
+      color: grey;
+    }
   }
 }

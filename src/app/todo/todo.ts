@@ -1,5 +1,6 @@
 import {Component, input, output} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import {TodoItem} from './model/todo-item';
 
 @Component({
   selector: 'app-todo',
@@ -9,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class Todo {
   subtitle = input<string>();
+  todos = input<TodoItem[]>();
 
   clear = output<void>();
 
