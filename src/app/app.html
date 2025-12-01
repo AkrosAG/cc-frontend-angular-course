@@ -1,4 +1,14 @@
 <div class="container">
   <h1>{{ title }}</h1>
   <router-outlet></router-outlet>
+  <div class="joke-container">
+    <h2>Joke of the day!</h2>
+    <div class="text">
+      @if (joke) {
+        {{joke}}
+      } @else {
+        Loading...
+      }
+    </div>
+  </div>
 </div>
