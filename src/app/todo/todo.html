@@ -3,10 +3,18 @@
 
   <ul>
     @for (todo of todos; track todo.id; let index = $index) {
-      <li>{{ todo.label | dashes: index}}</li>
+      <li>
+        <a
+          [routerLink]="['/detail', todo.id]"
+          [queryParams]="{ label: todo.label }"
+        >
+          {{ todo.label | dashes: index }}
+        </a>
+      </li>
     } @empty {
       <li class="no-todos">Keine Einträge</li>
     }
   </ul>
+
   <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
 </div>

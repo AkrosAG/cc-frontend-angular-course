@@ -2,10 +2,11 @@ import {Component, input, output} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {TodoItem} from './model/todo-item';
 import {DashesPipe} from '../utils/dashes-pipe';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-todo',
-  imports: [MatButtonModule, DashesPipe],
+  imports: [MatButtonModule, DashesPipe, RouterLink],
   templateUrl: './todo.html',
   styleUrl: './todo.scss',
 })
