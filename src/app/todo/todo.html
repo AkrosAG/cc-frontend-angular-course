@@ -1,12 +1,12 @@
 <div class="container">
-  <h2>{{ subtitle() }}</h2>
+  <h2>{{ subtitle }}</h2>
 
   <ul>
-    @for (todo of todos(); track todo.id; let index = $index) {
+    @for (todo of todos; track todo.id; let index = $index) {
       <li>{{ todo.label | dashes: index}}</li>
     } @empty {
       <li class="no-todos">Keine Einträge</li>
     }
   </ul>
-  <button mat-raised-button color="warn" (click)="onClearClick()">Clear</button>
+  <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
 </div>

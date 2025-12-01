@@ -10,12 +10,16 @@ import {DashesPipe} from '../utils/dashes-pipe';
   styleUrl: './todo.scss',
 })
 export class Todo {
-  subtitle = input<string>();
-  todos = input<TodoItem[]>();
 
-  clear = output<void>();
+  subtitle: string = 'Offene Todos'
 
-  onClearClick() {
-    this.clear.emit();
+  todos: TodoItem[] = [
+    {id: 1, label: 'Geschirr spülen'},
+    {id: 2, label: 'Wäsche waschen'},
+    {id:3, label: 'Alle Fenster putzen'}
+  ]
+
+  onClear() {
+    console.log('Todos zurücksetzen');
   }
 }
