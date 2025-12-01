@@ -1,4 +1,15 @@
 <div class="container">
+
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Was ist zu tun?</mat-label>
+      <input matInput type="text" [formControl]="todoInput"/>
+      @if (todoInput.hasError('minlength')) {
+        <mat-error>Ein Todo muss aus mindestens 3 Zeichen bestehen.</mat-error>
+      }
+    </mat-form-field>
+  </form>
+
   <h2>{{ subtitle }}</h2>
 
   <ul>

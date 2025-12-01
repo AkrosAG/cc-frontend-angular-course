@@ -1,9 +1,17 @@
+form {
+display: flex;
+  mat-form-field {
+    width: 400px;
+  }
+}
+
 ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 5px;
   width: 400px;
+  padding-left: 0;
 
   li {
     border: 1px cornflowerblue solid;
