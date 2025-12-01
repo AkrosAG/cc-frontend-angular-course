@@ -13,9 +13,9 @@ export class App {
   subtitle: string = 'Offene Todos'
 
   todos: TodoItem[] = [
-    {id: 1, label: 'abc'},
-    {id: 2, label: 'def'},
-    {id:3, label: 'ghi'}
+    {id: 1, label: 'Geschirr spülen'},
+    {id: 2, label: 'Wäsche waschen'},
+    {id:3, label: 'Alle Fenster putzen'}
   ]
 
   onClear() {
