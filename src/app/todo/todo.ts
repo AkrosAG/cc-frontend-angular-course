@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {TodoItem} from './model/todo-item';
 import {DashesPipe} from '../utils/dashes-pipe';
 import {RouterLink} from '@angular/router';
 import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {TodoService} from '../service/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -14,24 +15,26 @@ import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angula
 })
 export class Todo {
 
-  subtitle: string = 'Offene Todos'
-
-  todos: TodoItem[] = [
-    {id: 1, label: 'Geschirr spülen'},
-    {id: 2, label: 'Wäsche waschen'},
-    {id:3, label: 'Alle Fenster putzen'}
-  ]
+  subtitle: string = 'Offene Todos';
+  todos: TodoItem[];
+  private readonly todoService = inject(TodoService);
 
   todoInput = new FormControl('', [Validators.minLength(3)]);
 
+  constructor() {
+    this.todos = this.todoService.getTodos();
+  }
+
   onClear() {
-    console.log('Todos zurücksetzen');
+    this.todoService.clearTodos();
+    this.todos = this.todoService.getTodos();
   }
 
   protected onSubmit() {
     if(this.todoInput.value && this.todoInput.valid){
-      this.todos.push({id: this.todos.length + 1, label: this.todoInput.value})
-      this.todoInput.reset()
+      this.todoService.addTodo(this.todoInput.value);
+      this.todos = this.todoService.getTodos();
+      this.todoInput.reset();
     }
   }
 }

@@ -1,5 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {TodoItem} from '../todo/model/todo-item';
+import {TodoService} from '../service/todo.service';
 
 @Component({
   selector: 'app-todo-detail',
@@ -8,9 +10,15 @@ import {ActivatedRoute} from '@angular/router';
   styleUrl: './todo-detail.scss',
 })
 export class TodoDetail {
-  private route = inject(ActivatedRoute);
+  private readonly route = inject(ActivatedRoute);
+  private readonly todoService = inject(TodoService);
 
   id = this.route.snapshot.paramMap.get('id');
-  label = this.route.snapshot.queryParamMap.get('label');
+  todo: TodoItem;
+
+  constructor() {
+    this.todo = this.todoService.getTodo(+this.id!);
+  }
+
 
 }
