@@ -1,4 +1,4 @@
-## Module 2
+## Modul 2 (Lösung)
 
 1. Erstelle ein neues Angular Projekt. \
    Verwende dabei NPX, um die richtige npm Version zu benutzen: `npx @angular/cli@21 new angular-course`
@@ -10,6 +10,7 @@ AI: none
 ```
 2. Füge die angular material dependency hinzu. \
    [https://www.npmjs.com/package/@angular/material](https://www.npmjs.com/package/@angular/material)
+   `npm install @angular/material`
 3. Starte die Applikation mit `npm run start`
 4. Teste die Applikation mit `npm run test`
 5. Entferne den Inhalt vom [app.html](../src/app/app.html)
