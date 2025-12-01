@@ -2,7 +2,7 @@
 
 1. Erstelle ein neues Angular Projekt. \
    Verwende dabei NPX, um die richtige npm Version zu benutzen: `npx @angular/cli@21 new angular-course`
-   Im Prozess werden dir verschiedene Fragen gestellt, du kannst sie wie folgt beantworten:
+Im Prozess werden dir verschiedene Fragen gestellt, du kannst sie wie folgt beantworten:
 ```
 which stylesheet: scss
 SSR: nein
