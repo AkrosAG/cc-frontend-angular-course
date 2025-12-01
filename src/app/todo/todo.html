@@ -2,8 +2,8 @@
   <h2>{{ subtitle() }}</h2>
 
   <ul>
-    @for (todo of todos(); track todo.id) {
-      <li>{{ todo.label }}</li>
+    @for (todo of todos(); track todo.id; let index = $index) {
+      <li>{{ todo.label | dashes: index}}</li>
     } @empty {
       <li class="no-todos">Keine Einträge</li>
     }
