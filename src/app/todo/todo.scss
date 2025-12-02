@@ -1,0 +1,12 @@
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 400px;
+
+  li {
+    border: 1px cornflowerblue solid;
+    padding: 5px;
+  }
+}

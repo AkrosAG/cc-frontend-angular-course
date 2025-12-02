@@ -1,3 +1,5 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
 /* You can add global styles to this file, and also import other style files */
 body {
   font-family: "Century Gothic";
@@ -21,4 +23,10 @@ h4 {
 
 h5 {
   color: mediumvioletred;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
