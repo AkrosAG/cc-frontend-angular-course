@@ -4,8 +4,8 @@
   <div class="joke-container">
     <h2>Joke of the day!</h2>
     <div class="text">
-      @if (joke) {
-        {{joke}}
+      @if (joke$ | async) {
+        {{joke$ | async}}
       } @else {
         Loading...
       }

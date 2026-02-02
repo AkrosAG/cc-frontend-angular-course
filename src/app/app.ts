@@ -1,33 +1,18 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {JokeService} from './service/joke.service';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, AsyncPipe],
   templateUrl: './app.html',
-  styleUrl: './app.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './app.scss'
 })
-export class App implements OnInit, OnDestroy{
+export class App {
   private jokeService: JokeService = inject(JokeService);
-  private cdr = inject(ChangeDetectorRef);
-  private subscription: Subscription | undefined;
-
   title: string = 'Todos'
 
-  public joke: String | undefined;
-
-  ngOnInit(): void {
-    this.subscription = this.jokeService.getJoke().subscribe(res => {
-      this.joke = res?.value;
-      this.cdr.markForCheck();
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
-  }
-
+  public joke$: Observable<string> = this.jokeService.joke$;
 }
