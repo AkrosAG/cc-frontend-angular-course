@@ -8,3 +8,18 @@
     font-weight: bold;
   }
 }
+
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  .counter {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .is-even {
+    display: flex;
+  }
+}

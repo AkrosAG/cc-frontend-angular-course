@@ -4,11 +4,22 @@
   <div class="joke-container">
     <h2>Joke of the day!</h2>
     <div class="text">
-      @if (joke$ | async) {
-        {{joke$ | async}}
+      @if (joke()) {
+        {{joke()}}
       } @else {
         Loading...
       }
+    </div>
+  </div>
+  <div class="counter-container">
+    <h2>Counter</h2>
+    <div class="counter">
+      <button matButton (click)="decrementCounter()">-</button>
+      <span>{{ counter() }}</span>
+      <button matButton (click)="incrementCounter()">+</button>
+    </div>
+    <div class="is-even">
+      <span>{{`Der Counter ist ${isCounterEven() ? 'gerade' : 'ungerade'}.`}}</span>
     </div>
   </div>
 </div>
